@@ -17,7 +17,7 @@ from urllib import request, error
 
 API_REPO_URL = 'https://api.github.com/repos/kiwidude68/calibre-search-app'
 ZIP_NAME = 'calibre-search-app.zip'
-APP_NAME = 'Calibre Search App'
+APP_RELEASE_NAME = 'Calibre Search App'
 
 def getZipPath():
     zipFile = os.path.join(os.getcwd(), ZIP_NAME)
@@ -89,7 +89,7 @@ def createGitHubRelease(apiToken, tagName, changeBody):
     data = {
         'tag_name': tagName,
         'target_commitish': 'main',
-        'name': '{} v{}'.format(APP_NAME, version),
+        'name': '{} v{}'.format(APP_RELEASE_NAME, version),
         'body': changeBody,
         'draft': False,
         'prerelease': False,
@@ -112,8 +112,8 @@ def createGitHubRelease(apiToken, tagName, changeBody):
     except error.HTTPError as e:
         raise RuntimeError('Failed to create release due to:',e)
 
-def uploadZipToRelease(apiToken, uploadUrl, zipFile, tagName):
-    downloadZipName = tagName+'.zip'
+def uploadZipToRelease(apiToken, uploadUrl, zipFile):
+    downloadZipName = ZIP_NAME
     endpoint = uploadUrl.replace('{?name,label}','?name={}&label={}'.format(downloadZipName, downloadZipName))
     with open(zipFile, 'rb') as file:
         content = file.read()
@@ -145,6 +145,6 @@ if __name__=="__main__":
 
     checkIfReleaseExists(apiToken, tagName)
     (htmlUrl, uploadUrl) = createGitHubRelease(apiToken, tagName, changeBody)
-    uploadZipToRelease(apiToken, uploadUrl, zipFile, tagName)
+    uploadZipToRelease(apiToken, uploadUrl, zipFile)
     
     print('Github release completed: {}'.format(htmlUrl))
