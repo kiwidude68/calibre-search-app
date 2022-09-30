@@ -15,7 +15,7 @@ Invocation should be via release.cmd, which will ensure that:
 import sys, os, re, json
 from urllib import request, error
 
-API_REPO_URL = 'https://api.github.com/repos/kiwidude68/calibre-search-api'
+API_REPO_URL = 'https://api.github.com/repos/kiwidude68/calibre-search-app'
 ZIP_NAME = 'calibre-search-app.zip'
 APP_NAME = 'Calibre Search App'
 
@@ -36,15 +36,19 @@ def readLatestChangeLog():
         content = file.readlines()
     
     foundVersion = False
-    version = ''
+    version = None
     changeLines = []
     for line in content:
         if not foundVersion:
             if line.startswith('## ['):
                 foundVersion = True
-                versionMatch = re.match('\[([\d\.]+)\]', line)
+                versionMatch = re.match('##\s\[([\d\.]+)\]', line)
                 if versionMatch:
-                    version = versionMatch.group(0)
+                    version = versionMatch.groups(0)[0]
+                    print('Found version: {}'.format(version))
+                else:
+                    print('ERROR:No version found in the changelog file')
+                    raise RuntimeError('Missing version in changelog')
             continue
         # We are within the current version - include content unless we hit the previous version
         if line.startswith('## ['):
@@ -52,7 +56,7 @@ def readLatestChangeLog():
         changeLines.append(line)
 
     if len(changeLines) == 0:
-        print('ERROR: No change log details found for this version: {}'.format(version))
+        print('ERROR: No change log details found')
         raise RuntimeError('Missing details in changelog')
 
     # Trim trailing blank lines
