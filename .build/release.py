@@ -42,7 +42,7 @@ def readLatestChangeLog():
         if not foundVersion:
             if line.startswith('## ['):
                 foundVersion = True
-                versionMatch = re.match('\[([\d\.]+)\]')
+                versionMatch = re.match('\[([\d\.]+)\]', line)
                 if versionMatch:
                     version = versionMatch.group(0)
             continue
