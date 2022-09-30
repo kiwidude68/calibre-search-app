@@ -77,6 +77,16 @@ So no need for this application/separate download, no multi-platform issues - so
 
 Never say never on this approach if time allows or someone else volunteers. I could always make it optional in the extensions options pages so a user not wanting to run Content Server could still use this native application approach.
 
+## Donations
+
+If you enjoy my calibre plugins or extensions, please feel free to show your appreciation!
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)][donate-url]
+
+[paypal.me/kiwicalibre][donate-url]
+
+[donate-url]: https://www.paypalme/kiwicalibre
+
 [python-url]: https://www.python.org/downloads/
 
 [calibre-url]: https://calibre-ebook.com/
