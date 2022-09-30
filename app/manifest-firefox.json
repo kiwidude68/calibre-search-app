@@ -1,0 +1,8 @@
+{
+    "name": "com.kiwidude.calibre_search",
+    "description": "Execute calibre search",
+    "path": "C:\\Users\\micro\\AppData\\Local\\com.kiwidude.calibre_search\\calibre-search.cmd",
+    "type": "stdio",
+    "allowed_extensions": [ "calibre-search-firefox@kiwidude.com" ]
+  }
+  
