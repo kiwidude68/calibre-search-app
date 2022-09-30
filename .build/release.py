@@ -60,7 +60,7 @@ def readLatestChangeLog():
         changeLines.pop()
 
     print('ChangeLog details found: {0} lines'.format(len(changeLines)))
-    return ''.join(changeLines)
+    return (version, ''.join(changeLines))
 
 def checkIfReleaseExists(apiToken, tagName):
     # If we have already released this version then we have a problem
