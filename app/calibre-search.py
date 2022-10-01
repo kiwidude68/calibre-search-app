@@ -31,22 +31,21 @@ def sendMessage(encoded_message):
     sys.stdout.buffer.write(encoded_message['content'])
     sys.stdout.buffer.flush()
 
-while True:
-    message = getMessage()
-    result = {
-        'status': 'Failure'
-    }
-    if message['action'] == 'TEST_CONNECTIVITY':
+message = getMessage()
+result = {
+    'status': 'Failure'
+}
+if message['action'] == 'TEST_CONNECTIVITY':
+    result['status'] = 'Success'
+    result['version'] = version
+    scriptPath = os.path.dirname(os.path.abspath(__file__))
+    result['scriptpath'] = scriptPath + os.sep
+    sendMessage(encodeMessage(json.dumps(result)))
+else:
+    search = message['search']
+    try:
+        subprocess.run(["calibre", search])
         result['status'] = 'Success'
-        result['version'] = version
-        scriptPath = os.path.dirname(os.path.abspath(__file__))
-        result['scriptpath'] = scriptPath + os.sep
-        sendMessage(encodeMessage(json.dumps(result)))
-    else:
-        search = message['search']
-        try:
-            subprocess.run(["calibre", search])
-            result['status'] = 'Success'
-        except Exception as e:
-            print('Could not send message to calibre. ({})'.format(e))
-        sendMessage(encodeMessage(json.dumps(result)))
+    except Exception as e:
+        print('Could not send message to calibre. ({})'.format(e))
+    sendMessage(encodeMessage(json.dumps(result)))

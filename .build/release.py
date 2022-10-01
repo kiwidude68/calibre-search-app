@@ -16,7 +16,7 @@ import sys, os, re, json
 from urllib import request, error
 
 API_REPO_URL = 'https://api.github.com/repos/kiwidude68/calibre-search-app'
-ZIP_NAME = 'calibre-search-app.zip'
+ZIP_NAME = 'calibre-search-app-windows.zip'
 APP_RELEASE_NAME = 'Calibre Search App'
 
 def getZipPath():
