@@ -43,6 +43,8 @@ IF EXIST "%~dp0\app\calibre-search.py" (GOTO :EXISTING) ELSE GOTO :MISSING
   ECHO .. Setting manifest path locations
   
   SET MANIFESTPATH=%EXT_DIR%\calibre-search.cmd
+  SET MANIFESTPATH=%MANIFESTPATH:\=\\%
+  ECHO %MANIFESTPATH%
   FOR %%f IN (%EXT_DIR%\manifest-*.json) DO (
     CALL :MANIFEST_SET_PATH %%f
   )

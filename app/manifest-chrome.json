@@ -1,8 +1,7 @@
 {
-    "name": "com.kiwidude.calibre_search",
-    "description": "Execute calibre search",
-    "path": "MANIFESTPATH",
-    "type": "stdio",
-    "allowed_origins": [ "chrome-extension://amiijdfncmahbfhefignjkcgfkfkcbjf/" ]
-  }
-  
+  "name": "com.kiwidude.calibre_search",
+  "description": "Execute calibre search",
+  "path": "MANIFESTPATH",
+  "type": "stdio",
+  "allowed_origins": [ "chrome-extension://amiijdfncmahbfhefignjkcgfkfkcbjf/" ]
+}
