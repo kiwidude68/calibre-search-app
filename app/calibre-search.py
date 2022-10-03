@@ -6,7 +6,7 @@ import sys
 import struct
 import subprocess
 
-version = "0.1.0"
+version = "1.1.0"
 
 # Read a message from stdin and decode it.
 def getMessage():
