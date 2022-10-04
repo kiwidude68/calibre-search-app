@@ -19,5 +19,13 @@
                 "cwd": "${workspaceFolder}\\.build"
             },
         },
+        {
+            "label": "calibre-search-exe Golang -> Build",
+            "type": "shell",
+            "command": ".\\build-golang.cmd",
+            "options": {
+                "cwd": "${workspaceFolder}\\.build"
+            },
+        },
     ]
 }
