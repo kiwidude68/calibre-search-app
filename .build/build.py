@@ -40,22 +40,11 @@ def createZipFile(filename,mode,files,exclude=[]):
     myZipFile.close()
     return (1,filename)
 
-def getSubfolders():
-    cwd = os.getcwd()
-    folders = []
-    for subfolder in os.listdir(cwd):
-        subfolderPath = os.path.join(cwd, subfolder)
-        if os.path.isdir(subfolderPath):
-            # Filter out our special development folders like .build
-            if not subfolder.startswith('.'):
-                folders.append(subfolder)
-    return folders
-
 if __name__=="__main__":
     
     zipFileName = sys.argv[1]
 
-    files = getSubfolders()
+    files = ['app']
     exclude = ['*.pyc','*~']
     files.extend(glob('*.bat'))
     files.extend(glob('*.md'))
