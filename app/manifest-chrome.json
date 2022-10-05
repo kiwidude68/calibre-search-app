@@ -3,5 +3,5 @@
   "description": "Execute calibre search",
   "path": "MANIFESTPATH",
   "type": "stdio",
-  "allowed_origins": [ "chrome-extension://amiijdfncmahbfhefignjkcgfkfkcbjf/" ]
+  "allowed_origins": [ "chrome-extension://himlkdlpfckghcejmcfmffgjolcckjpc/" ]
 }
