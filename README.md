@@ -49,9 +49,9 @@ If you enjoy my calibre plugins or extensions, please feel free to show your app
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)][donate-url]
 
-[paypal.me/kiwicalibre][donate-url]
+[paypal.me/kiwidudeOz][donate-url]
 
-[donate-url]: https://www.paypalme/kiwicalibre
+[donate-url]: https://paypal.me/kiwidudeOz
 [wiki-url]: https://github.com/kiwidude68/calibre-search-app/wiki/Calibre-Search-FAQ
 
 [calibre-url]: https://calibre-ebook.com/
